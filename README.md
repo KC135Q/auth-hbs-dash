@@ -1,5 +1,5 @@
 __NEXT STEP__
-* Connect Google Authentication with local db.User :)
+* Follow the User through the process - identify best way to pass user_id through the system in authentication required routes
 
 # auth-hbs-dash
 Dashboard example using Passport Google OAuth 2.0, Handlebars

@@ -1,4 +1,5 @@
 var db = require("../models");
+var isLoggedIn = require("../lib/helpers.js");
 
 module.exports = function(app, passport) {
   app.get(
@@ -26,8 +27,10 @@ module.exports = function(app, passport) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.delete("/api/examples/:id", isLoggedIn, function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
   });
