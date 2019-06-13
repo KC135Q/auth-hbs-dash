@@ -1,6 +1,16 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/login" }),
+    (req, res) => {
+      console.log("Success!!! You are now logged in...");
+      // Successful authentication, redirect home.
+      res.redirect("/");
+    }
+  );
+
   // Get all examples
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
