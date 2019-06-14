@@ -1,4 +1,5 @@
 var db = require("../models");
+var isLoggedIn = require("../lib/helpers.js");
 
 module.exports = function(app) {
   // Load index page
@@ -10,6 +11,10 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.get("/restricted", isLoggedIn, function(req, res) {
+    res.render("restricted");
+  })
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
@@ -24,4 +29,5 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
 };
