@@ -1,5 +1,6 @@
-__NEXT STEP__
-* Follow the User through the process - identify best way to pass user_id through the system in authentication required routes
+__NEXT STEPS__
+* AWS storage for images
+* Swagger the API
 
 # auth-hbs-dash
 Dashboard example using Passport Google OAuth 2.0, Handlebars
